@@ -1,0 +1,31 @@
+body {
+  background-color: #e9f5e9;
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+h1 {
+  color: #2e7d32;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+canvas {
+  max-width: 100%;
+  height: auto !important;
+}
