@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finanace Flex</title>
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="top">
+    <header class="header" data-header>
+      <div class="container">
+        <a class="logo">Finance Flex</a>
+
+        <div class="dropdown">
+          <button class="dropbtn">Home</button>
+          <div class="dropdown-content">
+            <a href="pages/pred.html">Prediction</a>
+            <a href="pages/cal.html">Calender</a>
+            <a href="pages/game.html">Financial Life Simulator</a>
+            <a href="pages/virtualrep.html">Financial Wellness</a>
+          </div>
+        </div>
+
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list container">
+            <li>
+              <a href="#about-us" class="navbar-link active" data-nav-link
+                >About Us</a
+              >
+            </li>
+
+            <li>
+              <a href="#visual-representation" class="navbar-link" data-nav-link
+                >Visual Representation</a
+              >
+            </li>
+
+            <li>
+              <a href="#Future-pridiction" class="navbar-link" data-nav-link
+                >Future Prediction</a
+              >
+            </li>
+
+            <li>
+              <a href="pages/dashboard.html" class="btn btn-primary"
+                >Your Profile</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <button
+          class="nav-toggle-btn"
+          aria-label="toggle manu"
+          data-nav-toggler
+        >
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <article>
+        <section class="section hero" aria-label="hero" id="about-us">
+          <div class="container">
+            <div class="hero">
+              <video autoplay muted loop id="hero-video">
+                <source src="assets/videos/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div class="hero-content">
+                <p class="section-subtitle">Best Finance Website Out There</p>
+                <h1 class="h1 hero-title">
+                  Welcome to our Personal Finance Dashboard
+                </h1>
+                <p class="section-text">
+                  The ultimate tool for mastering your finances! Designed for
+                  millennials, our platform empowers you to take control
+                  effortlessly.
+                </p>
+                <ul class="btn-list">
+                  <li>
+                    <a
+                      href="pages/aboutus.html"
+                      class="btn-item-link"
+                      aria-label="About Us"
+                      >About Us
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="container mt-5">
+          <h1 class="text-center mb-4">Financial Expenditure Representation</h1>
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="card shadow">
+                <div class="card-body">
+                  <h5 class="card-title text-center">
+                    Expenditure Distribution (Pie Chart)
+                  </h5>
+                  <canvas id="pieChart"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 mb-4">
+              <div class="card shadow">
+                <div class="card-body">
+                  <h5 class="card-title text-center">
+                    Expenditure Overview (Bar Chart)
+                  </h5>
+                  <canvas id="barChart"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 mb-4">
+              <div class="card shadow">
+                <div class="card-body">
+                  <h5 class="card-title text-center">
+                    Monthly Returns (Stock Market Chart)
+                  </h5>
+                  <canvas id="returnsChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section features" id="features" aria-label="features">
+          <div class="container">
+            <p class="section-subtitle">Our App Feature</p>
+
+            <h2 class="h2 section-title">Awesome Features</h2>
+
+            <ul class="features-list">
+              <li class="features-item">
+                <div class="features-card">
+                  <div class="card-icon">
+                    <ion-icon
+                      name="create-outline"
+                      aria-hidden="true"
+                    ></ion-icon>
+                  </div>
+
+                  <h3 class="h3 card-title">Early Pridiction</h3>
+
+                  <p class="card-text">
+                    Predict your spending and create the perfect monthly plan
+                  </p>
+                </div>
+              </li>
+
+              <li class="features-item">
+                <div class="features-card">
+                  <div class="card-icon">
+                    <ion-icon
+                      name="shield-checkmark-outline"
+                      aria-hidden="true"
+                    ></ion-icon>
+                  </div>
+
+                  <h3 class="h3 card-title">Calender support</h3>
+
+                  <p class="card-text">
+                    Track your due dates and financial decisions with smart
+                    calendar mapping
+                  </p>
+                </div>
+              </li>
+
+              <li class="features-item">
+                <div class="features-card">
+                  <div class="card-icon">
+                    <ion-icon
+                      name="settings-outline"
+                      aria-hidden="true"
+                    ></ion-icon>
+                  </div>
+
+                  <h3 class="h3 card-title">Interactive Savings</h3>
+
+                  <p class="card-text">
+                    Step into the Finance Life Simulator.manage money, make
+                    choices, and see where your financial journey takes you!
+                  </p>
+                </div>
+              </li>
+
+              <li class="features-item">
+                <div class="features-card">
+                  <div class="card-icon">
+                    <ion-icon name="cube-outline" aria-hidden="true"></ion-icon>
+                  </div>
+
+                  <h3 class="h3 card-title">Financial Wellness</h3>
+
+                  <p class="card-text">
+                    Discover your Finance Wellness Score and earn rewards for
+                    achieving better financial health!
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="section footer-top">
+        <div class="container">
+          <div class="footer-brand">
+            <a href="#" class="logo">Financial Flex</a>
+
+            <p class="section-text">
+              Welcome to our Personal Finance Dashboard—the ultimate tool for
+              mastering your finances! Designed for millennials, our platform
+              empowers you to take control effortlessly. Analyze your spending
+              with dynamic charts and customizable filters, set budget limits
+              with real-time alerts, and track your savings goals with visual
+              progress. Manage recurring bills with a convenient drag-and-drop
+              calendar, and assess your financial health with a personalized
+              Wellness Score that updates in real-time.
+            </p>
+
+            <ul class="social-list">
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-google"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Company</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">About Us</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact Us</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Core Services</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Our Team</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Pricing Plan</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Useful Links</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact Us</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">App Download</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">How It Works</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Get In Touch</p>
+            </li>
+
+            <li class="footer-item">
+              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+
+              <a href="tel:+12023459999" class="item-link">+91 9876543210</a>
+            </li>
+
+            <li class="footer-item">
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+
+              <a href="mailto:supportvast@gmail.com" class="item-link"
+                >supportfinanaceflex@gmail.com</a
+              >
+            </li>
+
+            <li class="footer-item">
+              <ion-icon name="map-outline" aria-hidden="true"></ion-icon>
+
+              <address class="item-link address">
+                SPIT,<br />
+                MUMBAI
+              </address>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p class="copyright">
+            &copy; 2024 All Rights Reserved by
+            <a href="#" class="copyright-link">Financial Flex</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="#top"
+      class="back-top-btn"
+      aria-label="back to top"
+      data-back-top-btn
+    >
+      <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+    </a>
+    <script src="./assets/js/script.js" defer></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
