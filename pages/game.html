@@ -1,90 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Financial Life Simulator</title>
-  <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #e8f5e9; /* Light green background */
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Life Simulator</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #e8f5e9;
         margin: 0;
         padding: 20px;
         color: #333;
-    }
+      }
 
-    .container {
+      .container {
         max-width: 1000px;
         margin: 0 auto;
         background: #ffffff; /* White background for the container */
         border-radius: 10px; /* Rounded corners */
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
         padding: 20px; /* Padding inside the container */
-    }
+      }
 
-    .header {
+      .header {
         text-align: center;
         margin-bottom: 20px;
         color: #388e3c; /* Darker green for the header text */
-    }
+      }
 
-    .stats-grid {
+      .stats-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
         margin-bottom: 20px;
-    }
+      }
 
-    .stat-card {
+      .stat-card {
         background: #ffffff; /* White background for stat cards */
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
-    }
+      }
 
-    .stat-card:hover {
+      .stat-card:hover {
         transform: translateY(-5px); /* Lift effect on hover */
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-    }
+      }
 
-    .stat-card .icon {
+      .stat-card .icon {
         font-size: 24px;
         margin-bottom: 10px;
         color: #4caf50; /* Green color for icons */
-    }
+      }
 
-    .stat-card .label {
+      .stat-card .label {
         color: #666;
         font-size: 14px;
-    }
+      }
 
-    .stat-card .value {
+      .stat-card .value {
         font-size: 24px;
         font-weight: bold;
         color: #388e3c; /* Darker green for values */
-    }
+      }
 
-    .event-card {
+      .event-card {
         background: #f1f8e9; /* Light green background for event card */
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
         transition: transform 0.2s; /* Smooth hover effect */
-    }
+      }
 
-    .event-card:hover {
+      .event-card:hover {
         transform: translateY(-2px); /* Lift effect on hover */
-    }
+      }
 
-    .button-group {
+      .button-group {
         display: flex;
         gap: 10px;
         margin-top: 10px;
-    }
+      }
 
-    button {
+      button {
         padding: 10px 20px;
         border: none;
         border-radius: 5px;
@@ -93,367 +93,398 @@
         color: white;
         font-weight: bold;
         transition: background 0.3s, transform 0.2s; /* Smooth transitions */
-    }
+      }
 
-    button:hover {
+      button:hover {
         background: #388e3c; /* Darker green on hover */
         transform: translateY(-2px); /* Lift effect on hover */
-    }
+      }
 
-    .disabled {
+      .disabled {
         background: #ccc;
         cursor: not-allowed;
-    }
+      }
 
-    .history-section {
+      .history-section {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
         margin-top: 20px;
-    }
+      }
 
-    .history-card {
+      .history-card {
         background: white;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+      }
 
-    .achievement {
+      .achievement {
         background: #e8f5e9; /* Light green for achievements */
         padding: 10px;
         border-radius: 5px;
         margin-bottom: 10px;
-    }
+      }
 
-    .tip-card {
+      .tip-card {
         background: #fff3e0; /* Light orange for tips */
         padding: 15px;
         border-radius: 10px;
         margin-bottom: 20px;
-    }
+      }
 
-    /* New styles for event choices */
-    .event-choice {
+      /* New styles for event choices */
+      .event-choice {
         background: #f7f7f7; /* Light gray background for event choices */
         padding: 15px;
         border-radius: 10px;
         margin-bottom: 10px;
         transition: background 0.3s; /* Smooth hover effect */
-    }
+      }
 
-    .event-choice:hover {
+      .event-choice:hover {
         background: #e8f5e9; /* Light green on hover */
-    }
+      }
 
-    .event-choice.selected {
+      .event-choice.selected {
         background: #4caf50; /* Green background for selected event choice */
         color: white;
-    }
-</style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>Financial Life Simulator</h1>
-      <p>Month: <span id="month">1</span> | Score: <span id="score">0</span></p>
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Financial Life Simulator</h1>
+        <p>
+          Month: <span id="month">1</span> | Score: <span id="score">0</span>
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="icon">💰</div>
+          <div class="label">Cash</div>
+          <div class="value" id="cash">$5,000</div>
+        </div>
+        <div class="stat-card">
+          <div class="icon">🏦</div>
+          <div class="label">Savings</div>
+          <div class="value" id="savings">$0</div>
+        </div>
+        <div class="stat-card">
+          <div class="icon">📈</div>
+          <div class="label">Investments</div>
+          <div class="value" id="investments">$0</div>
+        </div>
+        <div class="stat-card">
+          <div class="icon">💳</div>
+          <div class="label">Credit Score</div>
+          <div class="value" id="creditScore">750</div>
+        </div>
+        <div class="stat-card">
+          <div class="icon">💸</div>
+          <div class="label">Debt</div>
+          <div class="value" id="debt">$0</div>
+        </div>
+      </div>
+
+      <div id="eventCard" class="event-card" style="display: none">
+        <h3 id="eventTitle"></h3>
+        <p id="eventDescription"></p>
+        <div class="button-group" id="eventChoices"></div>
+      </div>
+
+      <div id="tipCard" class="tip-card">
+        <h3>💡 Financial Tip</h3>
+        <p id="currentTip"></p>
+      </div>
+
+      <div class="history-section">
+        <div class="history-card">
+          <h3>🏆 Achievements</h3>
+          <div id="achievements"></div>
+        </div>
+        <div class="history-card">
+          <h3>📝 Financial History</h3>
+          <div id="history"></div>
+        </div>
+      </div>
+
+      <button onclick="nextMonth()" style="width: 100%; margin-top: 20px">
+        Next Month
+      </button>
     </div>
 
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="icon">💰</div>
-        <div class="label">Cash</div>
-        <div class="value" id="cash">$5,000</div>
-      </div>
-      <div class="stat-card">
-        <div class="icon">🏦</div>
-        <div class="label">Savings</div>
-        <div class="value" id="savings">$0</div>
-      </div>
-      <div class="stat-card">
-        <div class="icon">📈</div>
-        <div class="label">Investments</div>
-        <div class="value" id="investments">$0</div>
-      </div>
-      <div class="stat-card">
-        <div class="icon">💳</div>
-        <div class="label">Credit Score</div>
-        <div class="value" id="creditScore">750</div>
-      </div>
-      <div class="stat-card">
-        <div class="icon">💸</div>
-        <div class="label">Debt</div>
-        <div class="value" id="debt">$0</div>
-      </div>
-    </div>
+    <script>
+      // Game state
+      const gameState = {
+        month: 1,
+        cash: 5000,
+        savings: 0,
+        investments: 0,
+        creditScore: 750,
+        debt: 0,
+        score: 0,
+        salary: 4000,
+        expenses: 2500,
+        savingsInterestRate: 0.02, // 2% APY
+        investmentReturnRate: 0.07, // 7% APY
+        creditCardInterestRate: 0.15, // 15% APR
+      };
 
-    <div id="eventCard" class="event-card" style="display: none;">
-      <h3 id="eventTitle"></h3>
-      <p id="eventDescription"></p>
-      <div class="button-group" id="eventChoices"></div>
-    </div>
+      const achievements = [];
+      const history = [];
 
-    <div id="tipCard" class="tip-card">
-      <h3>💡 Financial Tip</h3>
-      <p id="currentTip"></p>
-    </div>
+      // Financial tips
+      const financialTips = [
+        "The 50/30/20 rule: Spend 50% on needs, 30% on wants, and save 20% of your income.",
+        "Build an emergency fund covering 3-6 months of expenses.",
+        "Invest early to take advantage of compound interest.",
+        "Pay off high-interest debt first while maintaining minimum payments on other debts.",
+        "Keep your credit utilization below 30% to maintain a good credit score.",
+        "Diversify your investments to manage risk.",
+        "Review your budget regularly and adjust as needed.",
+        "Consider disability and life insurance to protect your income.",
+      ];
 
-    <div class="history-section">
-      <div class="history-card">
-        <h3>🏆 Achievements</h3>
-        <div id="achievements"></div>
-      </div>
-      <div class="history-card">
-        <h3>📝 Financial History</h3>
-        <div id="history"></div>
-      </div>
-    </div>
+      // Financial events
+      const events = [
+        {
+          title: "Car Repair",
+          description: "Your car needs urgent repairs. Cost: $800",
+          cost: 800,
+          choices: [
+            { text: "Pay with cash", action: "cash" },
+            { text: "Use credit card", action: "credit" },
+            { text: "Use savings", action: "savings" },
+          ],
+          lesson:
+            "Having an emergency fund helps avoid debt for unexpected expenses.",
+        },
+        {
+          title: "Investment Opportunity",
+          description:
+            "Stock market is showing promising trends. Invest $1,000?",
+          cost: 1000,
+          choices: [
+            { text: "Invest cash", action: "invest" },
+            { text: "Save instead", action: "save" },
+            { text: "Skip", action: "skip" },
+          ],
+          lesson: "Regular investing helps build long-term wealth.",
+        },
+        {
+          title: "Medical Emergency",
+          description: "Unexpected medical bill. Cost: $1,200",
+          cost: 1200,
+          choices: [
+            { text: "Pay with savings", action: "savings" },
+            { text: "Use credit card", action: "credit" },
+            { text: "Payment plan", action: "plan" },
+          ],
+          lesson: "Health insurance and emergency savings are crucial.",
+        },
+      ];
 
-    <button onclick="nextMonth()" style="width: 100%; margin-top: 20px;">Next Month</button>
-  </div>
-
-  <script>
-    // Game state
-    const gameState = {
-      month: 1,
-      cash: 5000,
-      savings: 0,
-      investments: 0,
-      creditScore: 750,
-      debt: 0,
-      score: 0,
-      salary: 4000,
-      expenses: 2500,
-      savingsInterestRate: 0.02, // 2% APY
-      investmentReturnRate: 0.07, // 7% APY
-      creditCardInterestRate: 0.15, // 15% APR
-    };
-
-    const achievements = [];
-    const history = [];
-
-    // Financial tips
-    const financialTips = [
-      "The 50/30/20 rule: Spend 50% on needs, 30% on wants, and save 20% of your income.",
-      "Build an emergency fund covering 3-6 months of expenses.",
-      "Invest early to take advantage of compound interest.",
-      "Pay off high-interest debt first while maintaining minimum payments on other debts.",
-      "Keep your credit utilization below 30% to maintain a good credit score.",
-      "Diversify your investments to manage risk.",
-      "Review your budget regularly and adjust as needed.",
-      "Consider disability and life insurance to protect your income.",
-    ];
-
-    // Financial events
-    const events = [
-      {
-        title: "Car Repair",
-        description: "Your car needs urgent repairs. Cost: $800",
-        cost: 800,
-        choices: [
-          { text: "Pay with cash", action: "cash" },
-          { text: "Use credit card", action: "credit" },
-          { text: "Use savings", action: "savings" },
-        ],
-        lesson: "Having an emergency fund helps avoid debt for unexpected expenses.",
-      },
-      {
-        title: "Investment Opportunity",
-        description: "Stock market is showing promising trends. Invest $1,000?",
-        cost: 1000,
-        choices: [
-          { text: "Invest cash", action: "invest" },
-          { text: "Save instead", action: "save" },
-          { text: "Skip", action: "skip" },
-        ],
-        lesson: "Regular investing helps build long-term wealth.",
-      },
-      {
-        title: "Medical Emergency",
-        description: "Unexpected medical bill. Cost: $1,200",
-        cost: 1200,
-        choices: [
-          { text: "Pay with savings", action: "savings" },
-          { text: "Use credit card", action: "credit" },
-          { text: "Payment plan", action: "plan" },
-        ],
-        lesson: "Health insurance and emergency savings are crucial.",
-      },
-    ];
-
-    // Format currency
-    function formatCurrency(amount) {
-      return '$' + amount.toLocaleString(undefined, { maximumFractionDigits: 0 });
-    }
-
-    // Update display
-    function updateDisplay() {
-      document.getElementById('month').textContent = gameState.month;
-      document.getElementById('cash').textContent = formatCurrency(gameState.cash);
-      document.getElementById('savings').textContent = formatCurrency(gameState.savings);
-      document.getElementById('investments').textContent = formatCurrency(gameState.investments);
-      document.getElementById('creditScore').textContent = gameState.creditScore;
-      document.getElementById('debt').textContent = formatCurrency(gameState.debt);
-      document.getElementById('score').textContent = gameState.score;
-    }
-
-    // Handle event choice
-    function handleEventChoice(event, choice) {
-      let message = '';
-      
-      switch (choice) {
-        case 'cash':
-          if (gameState.cash >= event.cost) {
-            gameState.cash -= event.cost;
-            gameState.score += 100;
-            message = `Paid ${formatCurrency(event.cost)} with cash`;
-          } else {
-            message = "Insufficient cash available";
-          }
-          break;
-
-        case 'credit':
-          gameState.debt += event.cost;
-          gameState.creditScore = Math.max(300, gameState.creditScore - 20);
-          message = `Added ${formatCurrency(event.cost)} to credit card debt`;
-          break;
-
-        case 'savings':
-          if (gameState.savings >= event.cost) {
-            gameState.savings -= event.cost;
-            gameState.score += 150;
-            message = `Used savings to pay ${formatCurrency(event.cost)}`;
-          } else {
-            message = "Insufficient savings available";
-          }
-          break;
-
-        case 'invest':
-          if (gameState.cash >= event.cost) {
-            gameState.cash -= event.cost;
-            gameState.investments += event.cost;
-            gameState.score += 200;
-            message = `Invested ${formatCurrency(event.cost)}`;
-          }
-          break;
-
-        case 'save':
-          if (gameState.cash >= event.cost) {
-            gameState.cash -= event.cost;
-            gameState.savings += event.cost;
-            gameState.score += 150;
-            message = `Added ${formatCurrency(event.cost)} to savings`;
-          }
-          break;
+      // Format currency
+      function formatCurrency(amount) {
+        return (
+          "$" + amount.toLocaleString(undefined, { maximumFractionDigits: 0 })
+        );
       }
 
-      addToHistory(message);
-      document.getElementById('eventCard').style.display = 'none';
+      // Update display
+      function updateDisplay() {
+        document.getElementById("month").textContent = gameState.month;
+        document.getElementById("cash").textContent = formatCurrency(
+          gameState.cash
+        );
+        document.getElementById("savings").textContent = formatCurrency(
+          gameState.savings
+        );
+        document.getElementById("investments").textContent = formatCurrency(
+          gameState.investments
+        );
+        document.getElementById("creditScore").textContent =
+          gameState.creditScore;
+        document.getElementById("debt").textContent = formatCurrency(
+          gameState.debt
+        );
+        document.getElementById("score").textContent = gameState.score;
+      }
+
+      // Handle event choice
+      function handleEventChoice(event, choice) {
+        let message = "";
+
+        switch (choice) {
+          case "cash":
+            if (gameState.cash >= event.cost) {
+              gameState.cash -= event.cost;
+              gameState.score += 100;
+              message = `Paid ${formatCurrency(event.cost)} with cash`;
+            } else {
+              message = "Insufficient cash available";
+            }
+            break;
+
+          case "credit":
+            gameState.debt += event.cost;
+            gameState.creditScore = Math.max(300, gameState.creditScore - 20);
+            message = `Added ${formatCurrency(event.cost)} to credit card debt`;
+            break;
+
+          case "savings":
+            if (gameState.savings >= event.cost) {
+              gameState.savings -= event.cost;
+              gameState.score += 150;
+              message = `Used savings to pay ${formatCurrency(event.cost)}`;
+            } else {
+              message = "Insufficient savings available";
+            }
+            break;
+
+          case "invest":
+            if (gameState.cash >= event.cost) {
+              gameState.cash -= event.cost;
+              gameState.investments += event.cost;
+              gameState.score += 200;
+              message = `Invested ${formatCurrency(event.cost)}`;
+            }
+            break;
+
+          case "save":
+            if (gameState.cash >= event.cost) {
+              gameState.cash -= event.cost;
+              gameState.savings += event.cost;
+              gameState.score += 150;
+              message = `Added ${formatCurrency(event.cost)} to savings`;
+            }
+            break;
+        }
+
+        addToHistory(message);
+        document.getElementById("eventCard").style.display = "none";
+        updateDisplay();
+      }
+
+      // Add to history
+      function addToHistory(message) {
+        const historyDiv = document.getElementById("history");
+        const entry = document.createElement("p");
+        entry.textContent = `Month ${gameState.month}: ${message}`;
+        historyDiv.insertBefore(entry, historyDiv.firstChild);
+      }
+
+      // Check achievements
+      function checkAchievements() {
+        const achievementsDiv = document.getElementById("achievements");
+
+        // Emergency Fund Achievement
+        if (
+          gameState.savings >= 10000 &&
+          !achievements.includes("emergency_fund")
+        ) {
+          achievements.push("emergency_fund");
+          const achievement = document.createElement("div");
+          achievement.className = "achievement";
+          achievement.textContent = "🏆 Emergency Fund Master - Saved $10,000";
+          achievementsDiv.appendChild(achievement);
+          gameState.score += 500;
+        }
+
+        // Investment Achievement
+        if (
+          gameState.investments >= 20000 &&
+          !achievements.includes("investor")
+        ) {
+          achievements.push("investor");
+          const achievement = document.createElement("div");
+          achievement.className = "achievement";
+          achievement.textContent =
+            "🏆 Smart Investor - Built $20,000 portfolio";
+          achievementsDiv.appendChild(achievement);
+          gameState.score += 1000;
+        }
+
+        // Credit Score Achievement
+        if (
+          gameState.creditScore >= 800 &&
+          !achievements.includes("credit_master")
+        ) {
+          achievements.push("credit_master");
+          const achievement = document.createElement("div");
+          achievement.className = "achievement";
+          achievement.textContent =
+            "🏆 Credit Master - Reached 800+ credit score";
+          achievementsDiv.appendChild(achievement);
+          gameState.score += 750;
+        }
+      }
+
+      // Show random event
+      function showEvent(event) {
+        const eventCard = document.getElementById("eventCard");
+        const eventTitle = document.getElementById("eventTitle");
+        const eventDescription = document.getElementById("eventDescription");
+        const eventChoices = document.getElementById("eventChoices");
+
+        eventTitle.textContent = event.title;
+        eventDescription.textContent = event.description;
+        eventChoices.innerHTML = "";
+
+        event.choices.forEach((choice) => {
+          const button = document.createElement("button");
+          button.textContent = choice.text;
+          button.onclick = () => handleEventChoice(event, choice.action);
+          eventChoices.appendChild(button);
+        });
+
+        eventCard.style.display = "block";
+      }
+
+      // Next month
+      function nextMonth() {
+        // Monthly income and expenses
+        gameState.cash += gameState.salary;
+        gameState.cash -= gameState.expenses;
+
+        // Investment returns (monthly)
+        const monthlyReturn =
+          (gameState.investments * gameState.investmentReturnRate) / 12;
+        gameState.investments += monthlyReturn;
+
+        // Savings interest (monthly)
+        const savingsInterest =
+          (gameState.savings * gameState.savingsInterestRate) / 12;
+        gameState.savings += savingsInterest;
+
+        // Credit card interest
+        if (gameState.debt > 0) {
+          const monthlyInterest =
+            (gameState.debt * gameState.creditCardInterestRate) / 12;
+          gameState.debt += monthlyInterest;
+        }
+
+        // Random event (30% chance)
+        if (Math.random() < 0.3) {
+          const randomEvent = events[Math.floor(Math.random() * events.length)];
+          showEvent(randomEvent);
+        }
+
+        // Update tip
+        document.getElementById("currentTip").textContent =
+          financialTips[Math.floor(Math.random() * financialTips.length)];
+
+        gameState.month++;
+        checkAchievements();
+        updateDisplay();
+      }
+
+      // Initialize game
       updateDisplay();
-    }
-
-    // Add to history
-    function addToHistory(message) {
-      const historyDiv = document.getElementById('history');
-      const entry = document.createElement('p');
-      entry.textContent = `Month ${gameState.month}: ${message}`;
-      historyDiv.insertBefore(entry, historyDiv.firstChild);
-    }
-
-    // Check achievements
-    function checkAchievements() {
-      const achievementsDiv = document.getElementById('achievements');
-      
-      // Emergency Fund Achievement
-      if (gameState.savings >= 10000 && !achievements.includes('emergency_fund')) {
-        achievements.push('emergency_fund');
-        const achievement = document.createElement('div');
-        achievement.className = 'achievement';
-        achievement.textContent = '🏆 Emergency Fund Master - Saved $10,000';
-        achievementsDiv.appendChild(achievement);
-        gameState.score += 500;
-      }
-      
-      // Investment Achievement
-      if (gameState.investments >= 20000 && !achievements.includes('investor')) {
-        achievements.push('investor');
-        const achievement = document.createElement('div');
-        achievement.className = 'achievement';
-        achievement.textContent = '🏆 Smart Investor - Built $20,000 portfolio';
-        achievementsDiv.appendChild(achievement);
-        gameState.score += 1000;
-      }
-      
-      // Credit Score Achievement
-      if (gameState.creditScore >= 800 && !achievements.includes('credit_master')) {
-        achievements.push('credit_master');
-        const achievement = document.createElement('div');
-        achievement.className = 'achievement';
-        achievement.textContent = '🏆 Credit Master - Reached 800+ credit score';
-        achievementsDiv.appendChild(achievement);
-        gameState.score += 750;
-      }
-    }
-
-    // Show random event
-    function showEvent(event) {
-      const eventCard = document.getElementById('eventCard');
-      const eventTitle = document.getElementById('eventTitle');
-      const eventDescription = document.getElementById('eventDescription');
-      const eventChoices = document.getElementById('eventChoices');
-      
-      eventTitle.textContent = event.title;
-      eventDescription.textContent = event.description;
-      eventChoices.innerHTML = '';
-      
-      event.choices.forEach(choice => {
-        const button = document.createElement('button');
-        button.textContent = choice.text;
-        button.onclick = () => handleEventChoice(event, choice.action);
-        eventChoices.appendChild(button);
-      });
-      
-      eventCard.style.display = 'block';
-    }
-
-    // Next month
-    function nextMonth() {
-      // Monthly income and expenses
-      gameState.cash += gameState.salary;
-      gameState.cash -= gameState.expenses;
-      
-      // Investment returns (monthly)
-      const monthlyReturn = (gameState.investments * gameState.investmentReturnRate) / 12;
-      gameState.investments += monthlyReturn;
-      
-      // Savings interest (monthly)
-      const savingsInterest = (gameState.savings * gameState.savingsInterestRate) / 12;
-      gameState.savings += savingsInterest;
-      
-      // Credit card interest
-      if (gameState.debt > 0) {
-        const monthlyInterest = (gameState.debt * gameState.creditCardInterestRate) / 12;
-        gameState.debt += monthlyInterest;
-      }
-      
-      // Random event (30% chance)
-      if (Math.random() < 0.3) {
-        const randomEvent = events[Math.floor(Math.random() * events.length)];
-        showEvent(randomEvent);
-      }
-      
-      // Update tip
-      document.getElementById('currentTip').textContent = 
-        financialTips[Math.floor(Math.random() * financialTips.length)];
-      
-      gameState.month++;
-      checkAchievements();
-      updateDisplay();
-    }
-
-    // Initialize game
-    updateDisplay();
-    document.getElementById('currentTip').textContent = financialTips[0];
-  </script>
-</body>
+      document.getElementById("currentTip").textContent = financialTips[0];
+    </script>
+  </body>
 </html>

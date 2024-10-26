@@ -1,8 +1,5 @@
+// Pie Chart for Expenditure Distribution
 const ctxPie = document.getElementById("pieChart").getContext("2d");
-const ctxBar = document.getElementById("barChart").getContext("2d");
-const ctxReturns = document.getElementById("returnsChart").getContext("2d");
-
-// Sample data for expenditure
 const expenditureData = {
   labels: ["Rent", "Groceries", "Utilities", "Transportation", "Entertainment"],
   datasets: [
@@ -10,20 +7,100 @@ const expenditureData = {
       label: "Expenditure",
       data: [1200, 300, 150, 200, 100],
       backgroundColor: [
-        "rgba(255, 99, 132, 0.6)",
-        "rgba(54, 162, 235, 0.6)",
-        "rgba(255, 206, 86, 0.6)",
-        "rgba(75, 192, 192, 0.6)",
-        "rgba(153, 102, 255, 0.6)",
+        "rgba(255, 99, 132, 0.7)",
+        "rgba(54, 162, 235, 0.7)",
+        "rgba(255, 206, 86, 0.7)",
+        "rgba(75, 192, 192, 0.7)",
+        "rgba(153, 102, 255, 0.7)",
       ],
-      borderWidth: 1,
-      borderColor: "#fff",
-      hoverOffset: 4,
+      borderColor: "rgba(255, 255, 255, 1)",
+      borderWidth: 2,
+      hoverOffset: 6,
     },
   ],
 };
+new Chart(ctxPie, {
+  type: "pie",
+  data: expenditureData,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+      tooltip: {
+        enabled: true,
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
+        bodyColor: "#fff",
+        bodyFont: {
+          size: 12,
+        },
+      },
+    },
+  },
+});
 
-// Sample data for monthly returns
+// Bar Chart for Expenditure Overview
+const ctxBar = document.getElementById("barChart").getContext("2d");
+const expenditureOverviewData = {
+  labels: ["Rent", "Groceries", "Utilities", "Transportation", "Entertainment"],
+  datasets: [
+    {
+      label: "Expenditure Overview",
+      data: [1200, 300, 150, 200, 100],
+      backgroundColor: "rgba(54, 162, 235, 0.7)",
+      borderColor: "rgba(54, 162, 235, 1)",
+      borderWidth: 2,
+    },
+  ],
+};
+new Chart(ctxBar, {
+  type: "bar",
+  data: expenditureOverviewData,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        enabled: true,
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
+        bodyColor: "#fff",
+        bodyFont: {
+          size: 12,
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: "#555",
+          font: {
+            size: 14,
+          },
+        },
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          color: "#555",
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
+  },
+});
+
+// Line Chart for Monthly Returns
+const ctxReturns = document.getElementById("returnsChart").getContext("2d");
 const monthlyReturnsData = {
   labels: [
     "Jan",
@@ -43,66 +120,15 @@ const monthlyReturnsData = {
     {
       label: "Monthly Returns",
       data: [300, 500, 400, 600, 700, 800, 900, 600, 500, 700, 800, 1000],
-      backgroundColor: "rgba(75, 192, 192, 0.6)",
       borderColor: "rgba(75, 192, 192, 1)",
+      backgroundColor: "rgba(75, 192, 192, 0.3)",
       borderWidth: 2,
-      fill: false,
+      fill: true,
+      tension: 0.3,
     },
   ],
 };
-
-// Sample data for expenditure overview (Bar Chart)
-const expenditureOverviewData = {
-  labels: ["Rent", "Groceries", "Utilities", "Transportation", "Entertainment"],
-  datasets: [
-    {
-      label: "Expenditure Overview",
-      data: [1200, 300, 150, 200, 100],
-      backgroundColor: "rgba(255, 99, 132, 0.6)",
-      borderWidth: 1,
-      borderColor: "#fff",
-    },
-  ],
-};
-
-// Creating the Pie Chart
-const pieChart = new Chart(ctxPie, {
-  type: "pie",
-  data: expenditureData,
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top",
-      },
-      title: {
-        display: true,
-        text: "Expenditure Distribution",
-      },
-    },
-  },
-});
-
-// Creating the Bar Chart
-const barChart = new Chart(ctxBar, {
-  type: "bar",
-  data: expenditureOverviewData,
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top",
-      },
-      title: {
-        display: true,
-        text: "Expenditure Overview",
-      },
-    },
-  },
-});
-
-// Creating the Line Chart for Monthly Returns
-const returnsChart = new Chart(ctxReturns, {
+new Chart(ctxReturns, {
   type: "line",
   data: monthlyReturnsData,
   options: {
@@ -111,14 +137,32 @@ const returnsChart = new Chart(ctxReturns, {
       legend: {
         position: "top",
       },
-      title: {
-        display: true,
-        text: "Monthly Returns",
+      tooltip: {
+        enabled: true,
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
+        bodyColor: "#fff",
+        bodyFont: {
+          size: 12,
+        },
       },
     },
     scales: {
+      x: {
+        ticks: {
+          color: "#555",
+          font: {
+            size: 14,
+          },
+        },
+      },
       y: {
         beginAtZero: true,
+        ticks: {
+          color: "#555",
+          font: {
+            size: 14,
+          },
+        },
       },
     },
   },

@@ -1,20 +1,4 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
-
-/**
- * copyright 2022 codewithsadee
- */
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
-
 :root {
-  /**
-     * colors
-     */
-
   --imperial-red_12: hsla(357, 86%, 57%, 0.12);
   --pacific-blue_12: hsla(188, 78%, 41%, 0.12);
   --davys-gray_12: hsla(210, 9%, 31%, 0.12);
@@ -59,32 +43,15 @@
   --fw-500: 500;
   --fw-600: 600;
 
-  /**
-     * transition
-     */
-
   --transition: 0.25s ease;
   --cubic-out: cubic-bezier(0.45, 0.85, 0.5, 1);
   --cubic-in: cubic-bezier(0.5, 0, 0.5, 0.95);
 
-  /**
-     * radius
-     */
-
   --radius-6: 6px;
-
-  /**
-     * shadow
-     */
-
   --shadow-1: 0 12px 20px hsla(210, 10%, 23%, 0.07);
   --shadow-2: 0 2px 10px hsla(0, 0%, 0%, 0.04);
   --shadow-3: 0 2px 20px var(--black_08);
 }
-
-/*-----------------------------------*\
-    #RESET
-  \*-----------------------------------*/
 
 *,
 *::before,
@@ -151,11 +118,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(0, 0%, 70%);
 }
-
-/*-----------------------------------*\
-    #REUSED STYLE
-  \*-----------------------------------*/
-
 .container {
   padding-inline: 15px;
 }
@@ -336,11 +298,6 @@ body {
 .card-badge.radius-pill {
   border-radius: 50px;
 }
-
-/*-----------------------------------*\
-    #HEADER
-  \*-----------------------------------*/
-
 .header {
   background: var(--white);
   position: fixed;
@@ -458,11 +415,6 @@ body {
   color: var(--cool-gray);
   font-weight: var(--fw-500);
 }
-
-/*-----------------------------------*\
-    #HOME
-  \*-----------------------------------*/
-
 .article.container {
   padding: 20px 14px;
 }
@@ -651,10 +603,6 @@ body {
   font-size: var(--fs-9);
 }
 
-/*-----------------------------------*\
-    #PROJECTS
-  \*-----------------------------------*/
-
 .project-list {
   display: grid;
   gap: 25px;
@@ -726,11 +674,6 @@ body {
 .card-avatar-item:not(:first-child) {
   margin-left: -15px;
 }
-
-/*-----------------------------------*\
-    #TASKS
-  \*-----------------------------------*/
-
 .tasks-item:not(:last-child) {
   margin-bottom: 10px;
 }
@@ -811,10 +754,6 @@ body {
   display: block;
 }
 
-/*-----------------------------------*\
-    #FOOTER
-  \*-----------------------------------*/
-
 .footer {
   background: var(--white);
   padding-block: 25px;
@@ -856,19 +795,7 @@ body {
   color: inherit;
 }
 
-/*-----------------------------------*\
-    #MEDIA QUERIES
-  \*-----------------------------------*/
-
-/**
-   * responsive for larger than 400px screen
-   */
-
 @media (min-width: 400px) {
-  /**
-     * HOME
-     */
-
   .revenue-item:first-child {
     margin-bottom: 0;
   }
@@ -879,62 +806,30 @@ body {
   }
 }
 
-/**
-   * responsive for larger than 570px screen
-   */
-
 @media (min-width: 570px) {
-  /**
-     * REUSED STYLE
-     */
-
   .container {
     max-width: 550px;
     margin-inline: auto;
   }
-
-  /**
-     * HEADER
-     */
 
   .navbar-list,
   .user-action-list {
     padding-inline: 0;
   }
 
-  /**
-     * HOME
-     */
-
   .card-price {
     --fs-2: 1.625rem;
   }
-
-  /**
-     * TASKS
-     */
 
   .tasks .card-meta-list {
     justify-content: flex-end;
   }
 }
 
-/**
-   * responsive for larger than 768px screen
-   */
-
 @media (min-width: 768px) {
-  /**
-     * REUSED STYLE
-     */
-
   .container {
     max-width: 700px;
   }
-
-  /**
-     * HOME
-     */
 
   .progress-list {
     display: grid;
@@ -951,22 +846,10 @@ body {
   }
 }
 
-/**
-   * responsive for larger than 992px screen
-   */
-
 @media (min-width: 992px) {
-  /**
-     * REUSED STYLE
-     */
-
   .container {
     max-width: 950px;
   }
-
-  /**
-     * HEADER
-     */
 
   .menu-toggle-btn {
     display: none;
@@ -1004,10 +887,6 @@ body {
     gap: 20px;
   }
 
-  /**
-     * HOME
-     */
-
   .article.container {
     padding-block: 35px;
   }
@@ -1024,26 +903,14 @@ body {
     align-items: flex-end;
   }
 
-  /**
-     * PROJECTS
-     */
-
   .project-list {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  /**
-     * TASKS
-     */
 
   .tasks .task-card {
     grid-template-columns: 1fr 0.5fr 0.5fr;
     align-items: center;
   }
-
-  /**
-     * FOOTER
-     */
 
   .footer-list {
     margin-bottom: 0;
@@ -1056,30 +923,14 @@ body {
   }
 }
 
-/**
-   * responsive for larger than 1200px screen
-   */
-
 @media (min-width: 1200px) {
-  /**
-     * REUSED STYLE
-     */
-
   .container {
     max-width: 1150px;
   }
 
-  /**
-     * HEADER
-     */
-
   .navbar-list {
     gap: 25px;
   }
-
-  /**
-     * HOME
-     */
 
   .card-price {
     --fs-2: 1.78rem;
