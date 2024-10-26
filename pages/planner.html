@@ -1,78 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stylish Budget Planning</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="plansty.css" />
+  </head>
+  <body>
     <div class="budget-planning">
-        <h1>Budget Planning</h1>
-        <div class="container">
-            <div class="section savings">
-                <h2>Savings</h2>
-                <div class="goal">
-                    <label for="monthly-goal">Monthly Saving Goal:</label>
-                    <input type="number" id="monthly-goal" placeholder="Enter goal amount">
-                </div>
-                <div class="saved-so-far">
-                    <label for="amount-saved">Amount Saved So Far:</label>
-                    <input type="number" id="amount-saved" placeholder="Enter amount saved">
-                </div>
-                <button class="update">Update Savings</button>
-            </div>
-
-            <div class="section expenses">
-                <h2>Expenses</h2>
-                <div class="expense-category">
-                    <label for="food-expense">Food:</label>
-                    <input type="number" id="food-expense" placeholder="Enter amount spent">
-                </div>
-                <div class="expense-category">
-                    <label for="clothes-expense">Clothes:</label>
-                    <input type="number" id="clothes-expense" placeholder="Enter amount spent">
-                </div>
-                <div class="expense-category">
-                    <label for="entertainment-expense">Entertainment:</label>
-                    <input type="number" id="entertainment-expense" placeholder="Enter amount spent">
-                </div>
-                <div class="expense-category">
-                    <label for="others-expense">Others:</label>
-                    <input type="number" id="others-expense" placeholder="Enter amount spent">
-                </div>
-                <button class="update">Update Expenses</button>
-            </div>
-
-            <div class="section investments">
-                <h2>Investments</h2>
-                <div class="investment-details">
-                    <label for="stock-name">Stock Name:</label>
-                    <input type="text" id="stock-name" placeholder="Enter stock name">
-                </div>
-                <div class="investment-details">
-                    <label for="investment-amount">Investment Amount:</label>
-                    <input type="number" id="investment-amount" placeholder="Enter investment amount">
-                </div>
-                <div class="investment-details">
-                    <label for="risk-level">Risk Level:</label>
-                    <select id="risk-level">
-                        <option value="Low">Low</option>
-                        <option value="Medium">Medium</option>
-                        <option value="High">High</option>
-                    </select>
-                </div>
-                <button class="update">Update Investment</button>
-            </div>
+      <h1>Budget Planning</h1>
+      <div class="container">
+        <!-- Savings Section -->
+        <div class="section savings">
+          <h2>Savings</h2>
+          <div class="goal">
+            <label for="monthly-goal">Monthly Saving Goal:</label>
+            <input
+              type="number"
+              id="monthly-goal"
+              placeholder="Enter goal amount"
+            />
+          </div>
+          <div class="saved-so-far">
+            <label for="amount-saved">Amount Saved So Far:</label>
+            <input
+              type="number"
+              id="amount-saved"
+              placeholder="Enter amount saved"
+            />
+          </div>
+          <div class="progress">
+            <p id="savings-progress">Progress: 0%</p>
+          </div>
+          <button class="update" onclick="updateSavings()">
+            Update Savings
+          </button>
         </div>
+
+        <!-- Expenses Section -->
+        <div class="section expenses">
+          <h2>Expenses</h2>
+          <div class="expense-category">
+            <label for="food-expense">Food:</label>
+            <input
+              type="number"
+              id="food-expense"
+              placeholder="Enter amount spent"
+            />
+          </div>
+          <div class="expense-category">
+            <label for="clothes-expense">Clothes:</label>
+            <input
+              type="number"
+              id="clothes-expense"
+              placeholder="Enter amount spent"
+            />
+          </div>
+          <div class="expense-category">
+            <label for="entertainment-expense">Entertainment:</label>
+            <input
+              type="number"
+              id="entertainment-expense"
+              placeholder="Enter amount spent"
+            />
+          </div>
+          <div class="expense-category">
+            <label for="others-expense">Others:</label>
+            <input
+              type="number"
+              id="others-expense"
+              placeholder="Enter amount spent"
+            />
+          </div>
+          <div class="total-expenses">
+            <p id="total-expenses">Total Expenses: $0</p>
+          </div>
+          <button class="update" onclick="updateExpenses()">
+            Update Expenses
+          </button>
+        </div>
+
+        <!-- Investments Section -->
+        <div class="section investments">
+          <h2>Investments</h2>
+          <div class="investment-details">
+            <label for="stock-name">Stock Name:</label>
+            <input type="text" id="stock-name" placeholder="Enter stock name" />
+          </div>
+          <div class="investment-details">
+            <label for="investment-amount">Investment Amount:</label>
+            <input
+              type="number"
+              id="investment-amount"
+              placeholder="Enter investment amount"
+            />
+          </div>
+          <div class="investment-details">
+            <label for="risk-level">Risk Level:</label>
+            <select id="risk-level">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <button class="update" onclick="updateInvestments()">
+            Update Investment
+          </button>
+        </div>
+      </div>
     </div>
 
-    <script>
-        document.querySelectorAll('.update').forEach(button => {
-            button.addEventListener('click', function() {
-                alert('Information updated successfully!');
-            });
-        });
-    </script>
-</body>
+    <script src="planner.js"></script>
+  </body>
 </html>

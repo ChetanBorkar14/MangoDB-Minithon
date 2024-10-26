@@ -3,136 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendar - October 2024</title>
-    <link rel="stylesheet" href="cal.css" />
+    <title>Interactive Calendar</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
-    <div class="calendar">
-      <div class="month">
-        <div class="prev">&#10094;</div>
-        <div class="month-name">October 2024</div>
-        <div class="next">&#10095;</div>
-      </div>
-      <div class="weekdays">
-        <div>Sun</div>
-        <div>Mon</div>
-        <div>Tue</div>
-        <div>Wed</div>
-        <div>Thu</div>
-        <div>Fri</div>
-        <div>Sat</div>
-      </div>
-      <div class="days">
-        <!-- September days -->
-        <div class="day other-month"><span class="date">29</span></div>
-        <div class="day other-month"><span class="date">30</span></div>
+    <header class="header" data-header>
+      <div class="container">
+        <a class="logo" href="/index.html">Finance Flex</a>
 
-        <!-- October days -->
-        <div class="day">
-          <span class="date"
-            >1 <br /><span style="color: blue; font-size: 15px"
-              >Send money to Parents</span
-            ></span
-          >
+        <div class="dropdown">
+          <button class="dropbtn">Home</button>
+          <div class="dropdown-content">
+            <a href="/pages/pred.html">Prediction</a>
+            <a href="/pages/cal.html">Calender</a>
+            <a href="/pages/game.html">Financial Life Simulator</a>
+            <a href="/pages/virtualrep.html">Financial Wellness</a>
+            <a href="/pages/planner.html">Financial Wellness</a>
+          </div>
         </div>
-        <div class="day"><span class="date">2</span></div>
-        <div class="day"><span class="date">3 </span></div>
-        <div class="day">
-          <span class="date"
-            >4 <br /><span style="color: blue; font-size: 15px"
-              >Pay Rent</span
-            ></span
-          >
-        </div>
-        <div class="day"><span class="date">5 </span></div>
-        <div class="day">
-          <span class="date"
-            >6 <br /><span style="color: blue; font-size: 15px"
-              >Emi Payment</span
-            ></span
-          >
-        </div>
-        <div class="day"><span class="date">7</span></div>
-        <div class="day">
-          <span class="date"
-            >8 <br /><span style="color: blue; font-size: 15px"
-              >Wifi Payment</span
-            ></span
-          >
-        </div>
-        <div class="day"><span class="date">9</span></div>
-        <div class="day"><span class="date">10</span></div>
-        <div class="day"><span class="date">11</span></div>
-        <div class="day">
-          <span class="date"
-            >12 <br /><span style="color: blue; font-size: 15px"
-              >Credit Card Payment</span
-            ></span
-          >
-        </div>
-        <div class="day"><span class="date">13</span></div>
-        <div class="day"><span class="date">14</span></div>
-        <div class="day"><span class="date">15</span></div>
-        <div class="day"><span class="date">16 </span></div>
-        <div class="day"><span class="date">17</span></div>
-        <div class="day">
-          <span class="date"
-            >18 <br /><span style="color: blue; font-size: 15px"
-              >Monthly Sip</span
-            ></span
-          >
-        </div>
-        <div class="day"><span class="date">19</span></div>
-        <div class="day"><span class="date">20</span></div>
-        <div class="day"><span class="date">21 </span></div>
-        <div class="day"><span class="date">22</span></div>
-        <div class="day"><span class="date">23</span></div>
-        <div class="day">
-          <span class="date"
-            >24 <br /><span style="color: blue; font-size: 15px"
-              >Review Divident Payment</span
-            ></span
-          >
-        </div>
-        <div class="day"><span class="date">25</span></div>
-        <div class="day"><span class="date">26</span></div>
-        <div class="day"><span class="date">27 </span></div>
-        <div class="day">
-          <span class="date"
-            >28<br /><span style="color: blue; font-size: 15px"
-              >Market Analysis</span
-            ></span
-          >
-        </div>
-        <div class="day"><span class="date">29</span></div>
-        <div class="day">
-          <span class="date"
-            >30 <br /><span style="color: blue; font-size: 15px"
-              >Portfolio Rebalancing</span
-            ></span
-          >
-        </div>
-        <div class="day"><span class="date">31</span></div>
 
-        <!-- November days -->
-        <div class="day other-month"><span class="date">1</span></div>
-        <div class="day other-month"><span class="date">2</span></div>
-        <div class="day other-month"><span class="date">3</span></div>
-        <div class="day other-month"><span class="date">4</span></div>
-        <div class="day other-month"><span class="date">5</span></div>
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list container">
+            <li>
+              <a href="/pages/dashboard.html" class="btn btn-primary"
+                >Your Profile</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <button
+          class="nav-toggle-btn"
+          aria-label="toggle manu"
+          data-nav-toggler
+        >
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
       </div>
-    </div>
+    </header>
+    <main>
+      <div class="calendar">
+        <div class="month">
+          <div class="prev">&#10094;</div>
+          <div class="month-name"></div>
+          <div class="next">&#10095;</div>
+        </div>
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="days"></div>
+      </div>
 
-    <script>
-      document.querySelectorAll(".save-note").forEach((button) => {
-        button.addEventListener("click", function () {
-          const note = this.previousElementSibling.value;
-          if (note) {
-            alert(`Note saved: ${note}`);
-            this.previousElementSibling.value = "";
-          }
-        });
-      });
-    </script>
+      <div class="modal" id="noteModal">
+        <div class="modal-content">
+          <h3>Add Note</h3>
+          <textarea id="noteText"></textarea>
+          <div class="modal-buttons">
+            <button class="cancel-note">Cancel</button>
+            <button class="save-note">Save</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="cal.js"></script>
   </body>
 </html>

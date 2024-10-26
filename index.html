@@ -7,8 +7,6 @@
     <title>Finanace Flex</title>
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@700;900&display=swap"
       rel="stylesheet"
@@ -17,7 +15,7 @@
   <body id="top">
     <header class="header" data-header>
       <div class="container">
-        <a class="logo">Finance Flex</a>
+        <a class="logo" href="#top">Finance Flex</a>
 
         <div class="dropdown">
           <button class="dropbtn">Home</button>
@@ -26,14 +24,9 @@
             <a href="pages/cal.html">Calender</a>
             <a href="pages/game.html">Financial Life Simulator</a>
             <a href="pages/virtualrep.html">Financial Wellness</a>
-            <a href="pages/virtualrep.html" onclick="funcc()">Finance Planner</a>
+            <a href="pages/planner.html">Financial Planner</a>
           </div>
         </div>
-        <script>
-    function funcc(){
-        window.location.assign("./pages/planner.html");
-    }
-</script>
 
         <nav class="navbar" data-navbar>
           <ul class="navbar-list container">
@@ -44,7 +37,10 @@
             </li>
 
             <li>
-              <a href="#visual-representation" class="navbar-link" data-nav-link
+              <a
+                href="#visual-representation"
+                class="navbar-link active"
+                data-nav-link
                 >Visual Representation</a
               >
             </li>
@@ -83,10 +79,10 @@
                 Your browser does not support the video tag.
               </video>
               <div class="hero-content">
-                <p class="section-subtitle">Best Finance Website Out There</p>
-                <h1 class="h1 hero-title">
+                <p class="section-text">Best Finance Website Out There</p>
+                <p class="section-text">
                   Welcome to our Personal Finance Dashboard
-                </h1>
+                </p>
                 <p class="section-text">
                   The ultimate tool for mastering your finances! Designed for
                   millennials, our platform empowers you to take control
@@ -107,33 +103,33 @@
           </div>
         </section>
 
-        <div class="container mt-5">
+        <div class="container1 mt-5">
           <h1 class="text-center mb-4">Financial Expenditure Representation</h1>
           <div class="row">
-            <div class="col-md-12 mb-4">
-              <div class="card shadow">
-                <div class="card-body">
-                  <h5 class="card-title text-center">
+            <div class="col-md-4 mb-4">
+              <div class="card1 shadow">
+                <div class="card1-body">
+                  <h5 class="card1-title text-center">
                     Expenditure Distribution (Pie Chart)
                   </h5>
                   <canvas id="pieChart"></canvas>
                 </div>
               </div>
             </div>
-            <div class="col-md-12 mb-4">
-              <div class="card shadow">
-                <div class="card-body">
-                  <h5 class="card-title text-center">
+            <div class="col-md-4 mb-4">
+              <div class="card1 shadow">
+                <div class="card1-body">
+                  <h5 class="card1-title text-center">
                     Expenditure Overview (Bar Chart)
                   </h5>
                   <canvas id="barChart"></canvas>
                 </div>
               </div>
             </div>
-            <div class="col-md-12 mb-4">
-              <div class="card shadow">
-                <div class="card-body">
-                  <h5 class="card-title text-center">
+            <div class="col-md-4 mb-4">
+              <div class="card1 shadow">
+                <div class="card1-body">
+                  <h5 class="card1-title text-center">
                     Monthly Returns (Stock Market Chart)
                   </h5>
                   <canvas id="returnsChart"></canvas>
@@ -159,7 +155,7 @@
                     ></ion-icon>
                   </div>
 
-                  <h3 class="h3 card-title">Early Pridiction</h3>
+                  <h3 class="h3 card-title">Early Prediction</h3>
 
                   <p class="card-text">
                     Predict your spending and create the perfect monthly plan
@@ -368,6 +364,7 @@
     >
       <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
     </a>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./assets/js/script.js" defer></script>
     <script
       type="module"
